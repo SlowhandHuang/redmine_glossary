@@ -10,6 +10,7 @@
 <div class="splitcontentleft">
 <p><%= f.select :category_id, (@term_categories.collect {|c| [c.name, c.id]}), :include_blank => true %>
 <% if Rails::VERSION::MAJOR >= 3 %>
+<!-- prototype > Jquery する必要あり とりあえず無効  app/controllers/glossary_controller.rb:L129
   <%= link_to(l(:label_term_category_new),
                  {:controller => 'glossary', :action => 'add_term_category', :project_id => @project.id },
                  :category => 'category[name]', 
@@ -17,6 +18,7 @@
                  :tabindex => 199, 
                  :method => 'get',
                  :remote => true) if authorize_for('glossary', 'add_term_category') %></p>
+-->
 <% else %>
   <%= prompt_to_remote(l(:label_term_category_new),
                      l(:label_term_category_new), 'category[name]',

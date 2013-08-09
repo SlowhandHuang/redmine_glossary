@@ -2,6 +2,7 @@ require 'redmine'
 require 'cgi'
 require 'glossary_asset_tag_helper_patch'
 require 'term_link_helper'
+require_dependency 'glossary_view_layouts_base_html_head_hook'
 
 ActionView::Base.class_eval do
   include ActionView::Helpers::TermLinkHelper
@@ -15,6 +16,7 @@ Redmine::Plugin.register :redmine_glossary do
   version '0.7.0'
   author_url 'http://yohshiy.blog.fc2.com/'
   url 'http://www.r-labs.org/projects/rp-glossary/wiki/GlossaryEn'
+  requires_redmine :version_or_higher => '2.3'
 
   settings :default => {
     'hide_item_term_en' => false,
